@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+        <h4>Add an Admin</h4>
+        <tabel>
+            <tr>
+                <td>
+                    @Html.DropDownList("UserID", new SelectList(ViewBag.UserList, "Id", "UserName"), new { htmlAttributes = new { @id = "ddlUsers"  } } )
+                </td>
+                <td>
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </td>
+            </tr>
+        </tabel>
+  
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

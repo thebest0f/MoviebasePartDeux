@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MoviebasePartDeux.Models.Movie>
+
+
+<ul class="nav navbar-nav">
+    <li>
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        
+                        @Html.TextBox("txtSearch")
+
+                    </div>
+                </div>
+            </div>
+            }
+    </li>
+</ul>

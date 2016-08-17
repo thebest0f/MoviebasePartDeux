@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MoviebasePartDeux.Models.Genre>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<h2>Check out the newest movies!</h2>
+
+
+<table class="table">
+
+
+    @foreach (var genre in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Index", "FullMovieList", new { Genre = genre.GenreId  })"><h2 class="genreItem">@Html.DisplayFor(modelItem => genre.GenreName)</h2></a>
+
+                @foreach (var movie in genre.Movies.OrderByDescending(x => x.CreationDate).Take(5))
+                {
+                    <a href="@Url.Action("Index", "SingleMovie", new { MovieName = movie.MovieName  })"><h4 class="movieItem">@Html.DisplayName(movie.MovieName)</h4></a>
+                }
+            </td>
+        </tr>
+    }
+
+
+</table>

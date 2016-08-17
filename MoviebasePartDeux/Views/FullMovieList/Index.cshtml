@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MoviebasePartDeux.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 id="TitleGenre">@ViewBag.GenreId</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+           <h4>Name</h4>
+        </th>
+        <th>
+            <h4>Director</h4>
+        </th>
+        <th>
+           <h4>Year</h4>
+        </th>
+        <th>
+            <h4>Description</h4>
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovieName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovieDirector)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovieYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovieDesc)
+        </td>
+    </tr>
+}
+
+</table>
